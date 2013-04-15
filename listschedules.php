@@ -96,14 +96,16 @@ $SQLWhere = " Table_Schedules.DayID = Table_Days.DayID "
 					."AND Table_Schedules.RoomID = Table_Rooms.RoomID "
 					."AND Table_Schedules.CourseID = Table_Courses.CourseID "
 				."ORDER BY Table_Courses.CourseName, Table_Days.DayID ";
+				
+			
+//постраничный вывод
+$ResultsPerPage = 20;
+include("includes/navigation.php");
+
 $SQLQuery = "SELECT ".$SQLSelect
 				."FROM ".$SQLFrom
 				."WHERE ".$SQLWhere
 				.$sqlLimit;
-
-//постраничный вывод
-$ResultsPerPage = 20;
-include_once("includes/navigation.php");
 
 //запрашиваем результаты
 $sql = mysql_query($SQLQuery)

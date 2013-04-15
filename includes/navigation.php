@@ -1,10 +1,9 @@
 <? // ----- постраничный вывод
 // смотрим, сколько у нас всего результатов
 $sql = mysql_query("SELECT COUNT(*) "
-				."FROM Table_Schedules, Table_Courses, Table_Days, Table_Rooms "
-				."WHERE Table_Schedules.DayID = Table_Days.DayID "
-					."AND Table_Schedules.RoomID = Table_Rooms.RoomID "
-					."AND Table_Schedules.CourseID = Table_Courses.CourseID ");
+				." FROM ".$SQLFrom
+				." WHERE ".$SQLWhere
+					);
 
 $numResults = mysql_result($sql, 0);
 
